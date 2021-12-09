@@ -26,7 +26,10 @@ def predict():
   unseen_data_features = pd.DataFrame(transform_unseen_data, columns = word_unigram_features)
   model = pickle.load(open('trained_model.pkl', 'rb'))
   model_predictions = model.predict(unseen_data_features)
-  return jsonify( result = int(model_predictions[0]))
+  return jsonify( 
+    result = int(model_predictions[0]),
+    transcription = transcription
+  )
 
 
 if __name__ == '__main__':
